@@ -1,26 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:orientation="vertical"
     tools:context=".MainActivity">
-
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_message"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.625"
+        android:layout_gravity="bottom"
+        android:text="@string/text_GUI"
+        android:textSize="30sp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/ButtonText" />
+        android:id="@+id/button1"
+        android:layout_width="185dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:baselineAligned="false"
+        android:onClick="click_Me_Toast"
+        android:text="@string/Click_Here"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-</LinearLayout>
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="193dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/CheckBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="183dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="4dp"
+        android:verticalScrollbarPosition="left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1"
+        app:srcCompat="@string/flag_png" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="183dp"
+        android:layout_height="11dp"
+        android:layout_gravity=""
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Switch_on_off"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <EditText
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:gravity="center"
+        android:hint="@string/type_here"
+        android:inputType="textPersonName"
+        android:text="@string/type_here"
+        android:textFontWeight="21"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
