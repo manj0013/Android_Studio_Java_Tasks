@@ -1,46 +1,44 @@
 package com.cst2335.manj0013;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import android.widget.Switch;
-import android.widget.Toast;
+import android.widget.EditText;
 
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
-    Switch aSwitch;
-
+    private EditText v_Email;
+    private Button login_Button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_relative);
-        aSwitch =(Switch) findViewById(R.id.switch1);
-        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        SharedPreferences sharedPreferences = getSharedPreferences("com.cst2335.manj0013",MODE_PRIVATE);
+        setContentView(R.layout.activity_main_linear);
+        login_Button = (Button) findViewById(R.id.login);
+        v_Email= findViewById(R.id.email_lab3);
+        login_Button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton cb, boolean b) {
-                Snackbar snackbar = Snackbar.make(aSwitch,"The switch is now "+(b?"ON":"OFF"),Snackbar.LENGTH_LONG)
-                .setAction("Undo", click -> cb.setChecked(!b));
-                snackbar.show();
+            public void onClick(View view) {
+                Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                goToProfile.putExtra("EMAIL",sharedPreferences.getString("email","") );
+                startActivity(goToProfile);
             }
         });
-    }
-    public void click_Me_Toast(View v){
-        Toast.makeText(MainActivity.this, getResources().getString(R.string.toast_message), Toast.LENGTH_LONG).show();
-    }
-//    public void onCheckedChanged(CompoundButton cb, boolean b){
-//        aSwitch =(Switch) findViewById(R.id.switch1);
-//        Snackbar snackbar = Snackbar.make(aSwitch,R.string.snackbar1,Snackbar.LENGTH_LONG)
-//                .setAction("Undo", click -> cb.setChecked(!b));
-//        snackbar.show();
-//        //switch (buttonView.getID()){
-//            //Snackbar snackbar = Snackbar.setAction("Undo", click -> cb.setChecked(!b));
-//    }
 
+
+        v_Email.setText(sharedPreferences.getString("email",""));
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences emailPreference = getSharedPreferences("com.cst2335.manj0013", MODE_PRIVATE);
+        SharedPreferences.Editor editor = emailPreference.edit();
+        editor.putString("email",v_Email.getText().toString());
+        editor.apply();
+
+    }
 }
 

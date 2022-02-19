@@ -9,6 +9,17 @@
     <string name="Click_Here"> Click Here</string>
     <string name="Switch_on_off"> Switch on / off</string>
     <string name="type_here"> Type Here</string>
+    <string name="Email">Enter your email address:</string>
     <string name="snackbar1"> The switch is now</string>
-    <string name="flag_png">@drawable/flag</string>
+    <string name="mailBox">yahan apni mail dalle:  </string>
+    <string name="emailHint">Type email here</string>
+    <string name="passwordBox">Type your password: </string>
+    <string name="yourProfile">Your Profile</string>
+    <string name="yourName">Your Name</string>
+    <string name="nameHint">Enter your name</string>
+    <string name="yourEmail">Your Email:</string>
+    <string name="passowrdHint">type your password here</string>
+    <string name="profilePicture">Your picture: </string>
+    <string name="loginButton">LOGIN</string>
+    <drawable name="flag_png">@drawable/flag</drawable>
 </resources>
